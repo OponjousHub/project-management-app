@@ -1,0 +1,23 @@
+.welcome_image {
+  display: block;
+  width: 8rem;
+  height: 9rem;
+  margin: 0 auto;
+}
+
+section {
+  text-align: center;
+  margin: 10rem auto;
+}
+h1 {
+  color: #555;
+}
+p {
+  color: #666;
+}
+.center_btn {
+  display: flex;
+  justify-content: center;
+
+  margin-top: 5rem;
+}
