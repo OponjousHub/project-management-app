@@ -3,6 +3,7 @@ aside {
   width: 32rem;
   padding: 2.5rem;
   height: 100vh;
+  color: #fff;
 }
 
 .header {
@@ -25,10 +26,23 @@ aside {
 }
 
 .task_list {
-  color: azure;
   text-decoration: none;
   list-style: none;
+  text-align: left;
+  padding: 2px;
+}
+.task_list :hover {
+  background-color: #444;
 }
 .center_btn {
   margin: 3rem auto;
+}
+.projList {
+  width: 100%;
+  padding: 1rem 2px;
+  color: #cfcdcd;
+  background-color: #333;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
 }

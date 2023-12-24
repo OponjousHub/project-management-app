@@ -20,16 +20,34 @@ function App() {
     });
   };
 
+  const createProjectHandler = (project) => {
+    setProjectedState((prevState) => {
+      const newProject = {
+        ...project,
+        id: Math.random(),
+      };
+      return {
+        ...prevState,
+        selectedPageId: undefined,
+        projects: [...prevState.projects, newProject],
+      };
+    });
+  };
+  console.log(projectState.projects);
+
   let content;
   if (projectState.selectedPageId === null) {
-    content = <NewProject />;
+    content = <NewProject onCreateNewProject={createProjectHandler} />;
   } else if (projectState.selectedPageId === undefined) {
     content = <WelcomeMessge onAddProject={addNewProjectHandler} />;
   }
 
   return (
     <main className={classes.mainview_container}>
-      <AddProjects onAddProject={addNewProjectHandler} />
+      <AddProjects
+        onAddProject={addNewProjectHandler}
+        projectList={projectState.projects}
+      />
       {content}
     </main>
   );

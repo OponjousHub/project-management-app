@@ -4,16 +4,23 @@ import { Plus } from "@phosphor-icons/react";
 import Button from "./button";
 import classes from "./css/addProject.module.css";
 
-function AddProjects({ onAddProject }) {
+function AddProjects({ onAddProject, projectList }) {
+  console.log(projectList);
   return (
     <aside className={classes.addProject_container}>
       <h1 className={classes.header}>Your Projects</h1>
-      <Button onClick={onAddProject}>
-        <Plus />
-        <span>Add Project</span>
-      </Button>
+      <div>
+        <Button onClick={onAddProject}>
+          <Plus />
+          <span>Add Project</span>
+        </Button>
+      </div>
       <ul>
-        <li className={classes.task_list}>Task</li>
+        {projectList.map((project) => (
+          <li className={classes.task_list} key={project.id}>
+            <button className={classes.projList}>{project.title}</button>
+          </li>
+        ))}
       </ul>
     </aside>
   );
