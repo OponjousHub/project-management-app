@@ -1,0 +1,23 @@
+.deteils_container {
+  width: 70%;
+  padding: 2rem;
+  font-family: sans-serif;
+  line-height: 1.8;
+}
+.title_box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.title {
+  font-family: sans-serif;
+}
+
+.delete {
+  padding: 0 !important;
+  height: 0 !important;
+}
+.date {
+  font-size: 16px;
+  color: #888;
+}
