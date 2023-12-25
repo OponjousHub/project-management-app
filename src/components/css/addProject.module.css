@@ -24,6 +24,15 @@ aside {
   border-radius: 9px;
   cursor: pointer;
 }
+.btnSmall {
+  padding: 1rem 1.5rem;
+  color: beige;
+  background: #666;
+  border-radius: 4px;
+  font-weight: bold;
+  cursor: pointer;
+  float: right;
+}
 
 .task_list {
   text-decoration: none;

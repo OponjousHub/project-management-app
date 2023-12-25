@@ -1,8 +1,7 @@
-import { forwardRef, useImperativeHandle } from "react";
+import { forwardRef } from "react";
 
 import classes from "../components/css/newProjects.module.css";
 const Input = forwardRef(function Input({ label, textarea, ...props }, ref) {
-  // const ref = useImperativeHandle(ref);
   return (
     <>
       <label className={classes.label}>{label}</label>

@@ -1,6 +1,6 @@
 import classes from "./css/addProject.module.css";
 
-function Button({ children, ...props }) {
+export default function Button({ children, ...props }) {
   return (
     <div className={classes.btn_container}>
       <button className={classes.btn} {...props}>
@@ -9,5 +9,3 @@ function Button({ children, ...props }) {
     </div>
   );
 }
-
-export default Button;

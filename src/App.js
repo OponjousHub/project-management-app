@@ -3,6 +3,7 @@ import "./App.css";
 import AddProjects from "./components/addProjects";
 import NewProject from "./components/newProject";
 import WelcomeMessge from "./components/welcomePage";
+import SelectedProject from "./components/selectedProject";
 import classes from "./components/css/app.module.css";
 
 function App() {
@@ -33,11 +34,37 @@ function App() {
       };
     });
   };
-  console.log(projectState.projects);
+  const cancelProjectHandler = () => {
+    setProjectedState((prevState) => {
+      return {
+        ...prevState,
+        selectedPageId: undefined,
+      };
+    });
+  };
 
-  let content;
+  const selectedIdHandler = (selectedId) => {
+    setProjectedState((prevState) => {
+      return {
+        ...prevState,
+        selectedPageId: selectedId,
+      };
+    });
+  };
+
+  const selectedProject = projectState.projects.find(
+    (project) => projectState.selectedPageId === project.id
+  );
+
+  let content = <SelectedProject selectedProject={selectedProject} />;
   if (projectState.selectedPageId === null) {
-    content = <NewProject onCreateNewProject={createProjectHandler} />;
+    content = (
+      <NewProject
+        onCreateNewProject={createProjectHandler}
+        onCancelNewProject={cancelProjectHandler}
+        selectedProjectedId={selectedIdHandler}
+      />
+    );
   } else if (projectState.selectedPageId === undefined) {
     content = <WelcomeMessge onAddProject={addNewProjectHandler} />;
   }
@@ -47,6 +74,7 @@ function App() {
       <AddProjects
         onAddProject={addNewProjectHandler}
         projectList={projectState.projects}
+        onClickedProject={selectedIdHandler}
       />
       {content}
     </main>
