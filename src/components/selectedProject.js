@@ -1,7 +1,6 @@
 import classes from "./css/selectedProject.module.css";
 import ButtonSmall from "../utility/buttonSmall";
-import { Fragment } from "react";
-function SelectedProject({ selectedProject }) {
+function SelectedProject({ selectedProject, onDelete }) {
   console.log(selectedProject);
   const formatedDate = new Date(selectedProject.date).toLocaleDateString(
     "en-US",
@@ -11,18 +10,21 @@ function SelectedProject({ selectedProject }) {
       day: "numeric",
     }
   );
+
   return (
-    <Fragment>
+    <div>
       <header className={classes.deteils_container}>
         <div className={classes.title_box}>
           <h1 className={classes.title}>{selectedProject.title}</h1>
-          <ButtonSmall>Delete</ButtonSmall>
+          <div>
+            <ButtonSmall onClick={onDelete}>Delete</ButtonSmall>
+          </div>
         </div>
         <p className={classes.date}>{formatedDate}</p>
         <p>{selectedProject.description}</p>
       </header>
-      <p>Task</p>
-    </Fragment>
+      Task
+    </div>
   );
 }
 
