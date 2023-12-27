@@ -1,5 +1,5 @@
 import classes from "./css/selectedProject.module.css";
-import ButtonSmall from "../utility/buttonSmall";
+import Task from "./task";
 function SelectedProject({ selectedProject, onDelete }) {
   console.log(selectedProject);
   const formatedDate = new Date(selectedProject.date).toLocaleDateString(
@@ -12,18 +12,24 @@ function SelectedProject({ selectedProject, onDelete }) {
   );
 
   return (
-    <div>
+    <div className={classes.displayTask_box}>
       <header className={classes.deteils_container}>
         <div className={classes.title_box}>
           <h1 className={classes.title}>{selectedProject.title}</h1>
           <div>
-            <ButtonSmall onClick={onDelete}>Delete</ButtonSmall>
+            <button onClick={onDelete} className={classes.editBtn}>
+              Edit
+            </button>
+            <button onClick={onDelete} className={classes.delBtn}>
+              Delete
+            </button>
           </div>
         </div>
         <p className={classes.date}>{formatedDate}</p>
         <p>{selectedProject.description}</p>
       </header>
-      Task
+      <hr />
+      <Task />
     </div>
   );
 }

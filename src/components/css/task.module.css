@@ -1,0 +1,51 @@
+.task_container {
+  background-color: rgb(230, 232, 232);
+  margin-top: 0 !important;
+  padding: 0 2rem;
+}
+.task_container ul {
+  padding: 0 !important;
+}
+
+.task_title {
+  text-align: left;
+}
+.task_box {
+  display: flex;
+  gap: 2rem;
+}
+.task_input {
+  padding: 5px;
+  width: 75%;
+}
+
+.bttn:hover {
+  background-color: azure;
+  border: 2px solid #777;
+}
+p {
+  font-size: 1.6rem;
+  text-align: left;
+  color: #444;
+}
+
+.task_box {
+  list-style-type: none;
+  max-width: 45rem;
+  font-size: 1.6rem;
+  line-height: 1.7;
+  color: #555;
+
+  display: flex;
+  justify-content: space-between;
+}
+.clear {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  margin-bottom: 4px;
+}
+.clear:hover {
+  color: red;
+  font-weight: bold;
+}

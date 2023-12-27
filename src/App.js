@@ -1,15 +1,17 @@
 import { useState } from "react";
-import "./App.css";
+import TaskContext from "./store/task-context";
 import AddProjects from "./components/addProjects";
 import NewProject from "./components/newProject";
 import WelcomeMessge from "./components/welcomePage";
 import SelectedProject from "./components/selectedProject";
 import classes from "./components/css/app.module.css";
+import "./App.css";
 
 function App() {
   const [projectState, setProjectedState] = useState({
     selectedPageId: undefined,
     projects: [],
+    tasks: [],
   });
 
   const addNewProjectHandler = ({ project }) => {
@@ -69,12 +71,46 @@ function App() {
   const selectedProject = projectState.projects.find(
     (project) => projectState.selectedPageId === project.id
   );
+  const handleAddTask = (task) => {
+    setProjectedState((prevState) => {
+      const newTask = {
+        text: task,
+        id: Math.random(),
+      };
+      return {
+        ...prevState,
+        selectedPageId: projectState.selectedPageId,
+        tasks: [...prevState.tasks, newTask],
+      };
+    });
+  };
+
+  const handleDeleteTask = (delTaskId) => {
+    const existingTasks = projectState.tasks.filter(
+      (task) => task.id !== delTaskId
+    );
+
+    setProjectedState((prevState) => {
+      return {
+        ...prevState,
+        tasks: existingTasks,
+      };
+    });
+  };
+
+  const cartCtxApi = {
+    tasks: projectState.tasks,
+    onAddTask: handleAddTask,
+    onDeleteTask: handleDeleteTask,
+  };
 
   let content = (
-    <SelectedProject
-      selectedProject={selectedProject}
-      onDelete={deleteHandler}
-    />
+    <TaskContext.Provider value={cartCtxApi}>
+      <SelectedProject
+        selectedProject={selectedProject}
+        onDelete={deleteHandler}
+      />
+    </TaskContext.Provider>
   );
   if (projectState.selectedPageId === null) {
     content = (

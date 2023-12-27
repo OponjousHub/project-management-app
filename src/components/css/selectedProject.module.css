@@ -1,5 +1,10 @@
+.displayTask_box {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
 .deteils_container {
-  width: 70%;
+  width: 100%;
   padding: 2rem;
   font-family: sans-serif;
   line-height: 1.8;
@@ -12,12 +17,24 @@
 .title {
   font-family: sans-serif;
 }
+.delBtn {
+  border: none;
+  background: transparent;
+}
+.delBtn:hover {
+  text-decoration: underline;
+  color: red;
+}
 
-.delete {
+/* .delete {
   padding: 0 !important;
   height: 0 !important;
-}
+} */
 .date {
   font-size: 16px;
   color: #888;
+}
+hr {
+  margin: 0 2rem;
+  margin-bottom: 4rem;
 }
