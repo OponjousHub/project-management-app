@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import TaskContext from "./store/task-context";
 import AddProjects from "./components/addProjects";
 import NewProject from "./components/newProject";
@@ -13,6 +13,10 @@ function App() {
     projects: [],
     tasks: [],
   });
+
+  useEffect(() => {
+    localStorage.setItem("projectState", JSON.stringify(projectState));
+  }, [projectState]);
 
   const addNewProjectHandler = ({ project }) => {
     setProjectedState((prevState) => {
@@ -33,6 +37,19 @@ function App() {
         ...prevState,
         selectedPageId: undefined,
         projects: [...prevState.projects, newProject],
+      };
+    });
+  };
+  const editHandler = (project) => {
+    setProjectedState((prevState) => {
+      const editProject = {
+        ...project,
+        id: projectState.selectedPageId,
+      };
+      return {
+        ...prevState,
+        selectedPageId: undefined,
+        projects: [...prevState.projects, editProject],
       };
     });
   };
@@ -99,7 +116,10 @@ function App() {
   };
 
   const cartCtxApi = {
+    editTask: projectState.edit,
     tasks: projectState.tasks,
+    onCancelEdit: cancelProjectHandler,
+    onAddEdit: editHandler,
     onAddTask: handleAddTask,
     onDeleteTask: handleDeleteTask,
   };
