@@ -150,6 +150,7 @@ function App() {
         onAddProject={addNewProjectHandler}
         projectList={projectState.projects}
         onClickedProject={selectedIdHandler}
+        onSelectId={projectState.selectedPageId}
       />
       {content}
     </main>

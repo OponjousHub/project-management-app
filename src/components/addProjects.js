@@ -4,7 +4,12 @@ import { Plus } from "@phosphor-icons/react";
 import Button from "./button";
 import classes from "./css/addProject.module.css";
 
-function AddProjects({ onAddProject, projectList, onClickedProject }) {
+function AddProjects({
+  onAddProject,
+  projectList,
+  onClickedProject,
+  onSelectId,
+}) {
   console.log(projectList);
 
   return (
@@ -20,7 +25,11 @@ function AddProjects({ onAddProject, projectList, onClickedProject }) {
         {projectList.map((project) => (
           <li className={classes.task_list} key={project.id}>
             <button
-              className={classes.projList}
+              className={
+                project.id === onSelectId
+                  ? classes.projList_select
+                  : classes.projList
+              }
               onClick={() => {
                 onClickedProject(project.id);
               }}

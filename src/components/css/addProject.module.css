@@ -59,3 +59,12 @@ aside {
   border: none;
   cursor: pointer;
 }
+.projList_select {
+  width: 100%;
+  padding: 1rem 2px;
+  color: #cfcdcd;
+  background-color: #777;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+}
