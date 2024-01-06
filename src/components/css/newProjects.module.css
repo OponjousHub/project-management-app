@@ -6,7 +6,8 @@
   /* height: 30rem; */
   margin: 5rem auto;
   padding: 0 2.5rem;
-  box-shadow: 0 2px 2px 2px rgb(119, 119, 119, 0.2);
+  /* box-shadow: 0 2px 2px 2px rgb(119, 119, 119, 0.2); */
+  box-shadow: 1px 1px 8px 1px rgba(0, 0, 0, 0.6);
 }
 .newproject_control {
   display: flex;
